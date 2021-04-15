@@ -155,20 +155,29 @@
 <%--                </div>--%>
 <%--            </div>--%>
             <c:forEach var="p" items="${requestScope.foods}">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="single-food">
-                                    <div class="food-img">
-                                        <img src="${p.image_url}" class="img-fluid" alt="">
+                <c:url var="url" value="food">
+                    <c:param name="id" value="${p.id}"/>
+                </c:url>
+<%--                <a href="${url}">--%>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="${url}">
+                            <div class="single-food">
+                                <div class="food-img">
+                                    <img src="${p.image_url}" class="img-fluid" alt="">
+                                </div>
+                                <div class="food-content">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>${p.name}</h5>
+                                        <span class="style-change">${p.price}$</span>
                                     </div>
-                                    <div class="food-content">
-                                        <div class="d-flex justify-content-between">
-                                            <h5>${p.name}</h5>
-                                            <span class="style-change">${p.price}$</span>
-                                        </div>
-                                        <p class="pt-3">${p.description}</p>
-                                    </div>
+                                    <p class="pt-3">${p.description}</p>
                                 </div>
                             </div>
+                        </a>
+
+                    </div>
+<%--                </a>--%>
+
             </c:forEach>
         </div>
     </div>
